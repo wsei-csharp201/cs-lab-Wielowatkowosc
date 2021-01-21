@@ -17,7 +17,7 @@ namespace ConsoleApp1
             Watek2("    ");
 
             for(int i = 0; i < 10; i++)
-                Console.WriteLine(i);
+                Console.WriteLine((char)(97 + i));
 
             // ====================
 
@@ -34,7 +34,7 @@ namespace ConsoleApp1
             t2.Start("    ");
 
             for (int i = 0; i < 10; i++)
-                Console.WriteLine(i);
+                Console.WriteLine((char)(97+i));
 
             t2.Join();
             Console.WriteLine("Wszystkie wątki zakończone normalnie");

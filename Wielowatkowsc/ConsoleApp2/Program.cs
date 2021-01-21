@@ -31,6 +31,7 @@ namespace ConsoleApp2
             IncrementDecrement();
             IncrementDecrementMultiThread();
             IncrementDecrementMultiThreadLockShared();
+            IncrementDecrementInterlocked();
         }
 
 
@@ -234,6 +235,7 @@ namespace ConsoleApp2
 
         static void IncrementDecrementMultiThread()
         {
+            counter = 0;
             Thread t1 = new Thread(
               () =>
                 {
@@ -258,6 +260,7 @@ namespace ConsoleApp2
 
         static void IncrementDecrementMultiThreadLockShared()
         {
+            counter = 0;
             Thread t1 = new Thread(
               () =>
               {
@@ -277,6 +280,31 @@ namespace ConsoleApp2
                       {
                           counter--;
                       }
+              }
+            );
+            t1.Start(); t2.Start();
+
+            t1.Join(); t2.Join();
+
+            Console.WriteLine("counter = " + counter);
+        }
+
+        static void IncrementDecrementInterlocked()
+        {
+            counter = 0;
+            Thread t1 = new Thread(
+              () =>
+              {
+                  for (int i = 0; i < 1_000_000; i++)
+                      Interlocked.Increment(ref counter);
+              }
+            );
+
+            Thread t2 = new Thread(
+              () =>
+              {
+                  for (int i = 0; i < 1_000_000; i++)
+                      Interlocked.Decrement(ref counter);
               }
             );
             t1.Start(); t2.Start();
