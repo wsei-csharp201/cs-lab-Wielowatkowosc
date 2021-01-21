@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="300">
+    <Grid>
+        <Button x:Name="btnProcess" Content="Process" HorizontalAlignment="Left" Margin="180,27,0,0" VerticalAlignment="Top" Width="76" Click="btnProcess_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="180,78,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnCancel_Click"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="18" Margin="25,152,0,0" VerticalAlignment="Top" Width="230"/>
+
+    </Grid>
+</Window>
